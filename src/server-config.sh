@@ -2,7 +2,7 @@
 
 sudo yum install git -y
 sudo yum install maven -y
-sudo yum install java-1.8.0-openjdk-devel -y 
+sudo yum install java-11-amazon-corretto-1:11.0.23+9-1.amzn2023.x86_64 -y 
 
 if [ -d "java11-junit5-archetype" ]
 then
