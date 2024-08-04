@@ -5,29 +5,46 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
+environment{
+        PI_SERVER='kdargan@172.31.89.206'
+        CT_SERVER='kdargan@172.31.82.157'
+        
+    }
+
 
     stages {
         stage('Compile') {
             steps {
-                echo "test mvn complie"
+                script{
+                    sshagent(['kdslave1']) {
+                     echo "test mvn compile In-progress"
+                    sh "scp  -o StrictHostKeyChecking=no server-config.sh ${PI_SERVER}:/home/kdargan"
+                    sh "ssh -o StrictHostKeyChecking=no ${PI_SERVER} 'bash server-config.sh'"
             }
-
+            }
+            }
             }
 stage('Test') {
             steps {
-               echo "test mvn complie"
+               echo "test mvn Test In-progress"
             }
 
             }
 stage('package') {
             steps {
-             echo "test mvn package" 
+            script{
+            sshagent(['kdslave2']) {
+             echo "test mvn package In-progress"
+            sh "scp  -o StrictHostKeyChecking=no server-config.sh ${CT_SERVER}:/home/kdargan"
+                    sh "ssh -o StrictHostKeyChecking=no ${PI_SERVER} 'bash server-config.sh'"
+            }
             }
 
             }
+            }
 stage('Install') {
             steps {
-               echo "test mvn complie"
+               echo "test mvn complie In-progress"
             }
 
             }
