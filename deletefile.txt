@@ -1,1 +1,2 @@
 Delete file.
+A=100
