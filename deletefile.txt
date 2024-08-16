@@ -1,2 +1,2 @@
 Delete file.
-A=3000
+A=30000
