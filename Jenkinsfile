@@ -9,7 +9,7 @@ pipeline {
 
     stages {
         stage('Checkout Master') {
-            When {
+            when{
                 expression{
                     params.RUN_STAGE == true
                 }
@@ -20,7 +20,7 @@ pipeline {
                 }
                         }        
 stage('Compile') {
-    When {
+    when{
                 expression{
                     params.RUN_STAGE == true
                 }
@@ -31,7 +31,7 @@ stage('Compile') {
 
             }
 stage('Test') {
-    When {
+    when{
                 expression{
                     params.RUN_STAGE == true
                 }
@@ -41,7 +41,7 @@ stage('Test') {
             }
 }
 stage('Install') {
-    When {
+    when{
                 expression{
                     params.RUN_STAGE == true
                 }
