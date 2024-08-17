@@ -29,8 +29,10 @@ stage('Compile') {
                 }
             }
             steps {
+                script{
                echo "In-progress Compile"
                 sh 'mvn compile'
+                }
             }
 
             }
@@ -41,8 +43,10 @@ stage('Test') {
                 }
             }
             steps {
+                script{
             echo "In-progress Test"
                 sh 'mvn test'
+                }
             }
 }
 stage('Install') {
@@ -52,8 +56,10 @@ stage('Install') {
                 }
             }
             steps {
+                script{
                echo "In-progress install"
                 sh 'mvn install'
+                }
                     }
                 }
         }
