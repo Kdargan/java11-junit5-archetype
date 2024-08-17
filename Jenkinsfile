@@ -30,6 +30,7 @@ stage('Compile') {
             }
             steps {
                echo "Print Compile"
+                sh 'mvn compile'
             }
 
             }
@@ -41,6 +42,7 @@ stage('Test') {
             }
             steps {
             echo "Print Test"
+                sh 'mvn test'
             }
 }
 stage('Install') {
@@ -51,6 +53,7 @@ stage('Install') {
             }
             steps {
                echo "Print install"
+                sh 'mvn install'
                     }
                 }
         }
