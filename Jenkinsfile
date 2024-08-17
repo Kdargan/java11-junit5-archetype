@@ -17,16 +17,17 @@ pipeline {
                     params.Checkout_Feature_branch == true
                 }
             }
-            
-            steps {
-               echo "In-progress Checkout"
-                input {
+            input {
                 message "Select Branch"
                 ok "Selected"
                 parameters {
                     choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
                 }
                 }
+            
+            steps {
+               echo "In-progress Checkout"
+                
                 }
                         }        
 stage('Compile') {
