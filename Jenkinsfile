@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     tools {
         maven "mymvn"
     }
@@ -12,6 +12,7 @@ pipeline {
 
     stages {
         stage('Checkout Branch') {
+            agent {label 'kdslave1'}
             when{
                 expression{
                     params.Checkout_Feature_branch == true
@@ -31,6 +32,7 @@ pipeline {
                 }
                         }        
 stage('Compile') {
+    agent {label 'kdslave1'}
     when{
                 expression{
                     params.RUN_STAGE_Compile == true
@@ -45,6 +47,7 @@ stage('Compile') {
 
             }
 stage('Test') {
+    agent {label 'kdslave1'}
     when{
                 expression{
                     params.RUN_STAGE_Test == true
@@ -58,6 +61,7 @@ stage('Test') {
             }
 }
 stage('Install') {
+    agent {label 'kdslave1'}
     when{
                 expression{
                     params.RUN_STAGE_Install == true
