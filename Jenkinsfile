@@ -27,6 +27,7 @@ pipeline {
                     choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
                 }
                 }
+                }
                         }        
 stage('Compile') {
     when{
