@@ -19,7 +19,7 @@ pipeline {
             }
             
             steps {
-               echo "Print Checkout"
+               echo "In-progress Checkout"
                 }
                         }        
 stage('Compile') {
@@ -29,7 +29,7 @@ stage('Compile') {
                 }
             }
             steps {
-               echo "Print Compile"
+               echo "In-progress Compile"
                 sh 'mvn compile'
             }
 
@@ -41,7 +41,7 @@ stage('Test') {
                 }
             }
             steps {
-            echo "Print Test"
+            echo "In-progress Test"
                 sh 'mvn test'
             }
 }
@@ -52,7 +52,7 @@ stage('Install') {
                 }
             }
             steps {
-               echo "Print install"
+               echo "In-progress install"
                 sh 'mvn install'
                     }
                 }
