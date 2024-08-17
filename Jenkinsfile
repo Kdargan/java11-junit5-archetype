@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Master') {
+        stage('Checkout Branch') {
             when{
                 expression{
                     params.Checkout_Feature_branch == true
@@ -20,6 +20,12 @@ pipeline {
             
             steps {
                echo "In-progress Checkout"
+                input {
+                message "Select Branch"
+                ok "Selected"
+                parameters {
+                    choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
+                }
                 }
                         }        
 stage('Compile') {
