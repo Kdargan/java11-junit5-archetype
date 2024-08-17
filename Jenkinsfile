@@ -13,9 +13,9 @@ pipeline {
     stages {
         stage('Checkout Master') {
             when{
-                //expression{
+                expression{
                     params.Checkout_Feature_branch == true
-                //}
+                }
             }
             
             steps {
