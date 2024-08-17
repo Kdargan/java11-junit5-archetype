@@ -5,7 +5,6 @@ pipeline {
     }
     parameters{
         booleanParam(name: 'RUN_STAGE', defaultValue: true, description: 'If the stage has to execute or not')
-        choice(name: 'MVN_Version', choices: ['3.9.8', '3.9.6''], description: 'Select maven version')
     }
 
     stages {
