@@ -28,7 +28,7 @@ pipeline {
             
             steps {
                echo "In-progress Checkout"
-                git branch: 'feature2', url: 'https://github.com/Kdargan/java11-junit5-archetype.git'
+                git branch: 'feature1', url: 'https://github.com/Kdargan/java11-junit5-archetype.git'
                 
                 }
                         }        
