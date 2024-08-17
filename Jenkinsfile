@@ -41,6 +41,7 @@ stage('Compile') {
             steps {
                 script{
                echo "In-progress Compile"
+                sh 'mvn clean'    
                 sh 'mvn compile'
                 }
             }
