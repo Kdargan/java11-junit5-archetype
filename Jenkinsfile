@@ -13,6 +13,9 @@ pipeline {
     stages {
         stage('Checkout Branch') {
             agent {label 'kdslave1'}
+            options {
+        timeout(time: 60, unit: 'SECONDS')
+    }
             when{
                 expression{
                     params.Checkout_Feature_branch == true
