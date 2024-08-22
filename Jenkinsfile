@@ -59,13 +59,7 @@ stage('Test') {
                     params.RUN_STAGE_Test == true
                 }
             }
-    input {
-                message "Select Branch"
-                ok "Selected"
-                parameters {
-                    choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
-                }
-                }
+   
             steps {
                 script{
             echo "In-progress Test"
