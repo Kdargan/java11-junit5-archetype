@@ -16,3 +16,4 @@ cd java11-junit5-archetype
 git checkout master
 fi
 
+//define env. variable of java & maven.
