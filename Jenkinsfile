@@ -9,6 +9,7 @@ pipeline {
         booleanParam(name: 'RUN_STAGE_Test', defaultValue: true, description: 'If the stage has to execute or not')
         booleanParam(name: 'RUN_STAGE_Install', defaultValue: true, description: 'If the stage has to execute or not')
     }
+    //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
     options {
         timeout(time: 60, unit: 'SECONDS')
     }
@@ -53,7 +54,7 @@ stage('Compile') {
 
             }
 stage('Test') {
-    agent {label 'kdslave1'}
+    agent any
     when{
                 expression{
                     params.RUN_STAGE_Test == true
@@ -62,13 +63,22 @@ stage('Test') {
    
             steps {
                 script{
+                    sshagent(['Kdslave2']) {
             echo "In-progress Test"
+                        input {
+                message "Select Branch"
+                ok "Selected"
+                parameters {
+                    choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
+                }
+                }
                 sh 'mvn test'
                 }
             }
+            }
 }
 stage('Install') {
-    agent {label 'kdslave1'}
+    agent any
     when{
                 expression{
                     params.RUN_STAGE_Install == true
@@ -76,10 +86,12 @@ stage('Install') {
             }
             steps {
                 script{
+                    sshagent(['Kdslave2']) {
                echo "In-progress install"
                 sh 'mvn install'
                 }
                     }
                 }
+}
         }
 }
