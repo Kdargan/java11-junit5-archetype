@@ -10,7 +10,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 source /etc/profile
 echo ${JAVA_HOME}
 
-if [ -d "java11-junit5-archetype"]
+if [ -d "java11-junit5-archetyp"] 
 then
 echo "Git repo already clones. Already existed!!!"
 cd /home/ec2-user/java11-junit5-archetype
