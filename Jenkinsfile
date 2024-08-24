@@ -72,13 +72,6 @@ stage('Test') {
             echo "In-progress Test"
             sh "scp -o StrictHostKeyChecking=no kdslave2_configfile.sh ${kdslave2}:${DEST_PATH}"
             sh "ssh -o StrictHostKeyChecking=no  ${kdslave2} 'bash ~/kdslave2_configfile.sh'"
-                        input {
-                message "Select Branch"
-                ok "Selected"
-                parameters {
-                    choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
-                }
-                }
                 sh 'mvn test'
                 }
             }
@@ -95,6 +88,13 @@ stage('Install') {
                 script{
                     sshagent(['Kdslave2']) {
                echo "In-progress install"
+                        input {
+                message "Select Branch"
+                ok "Selected"
+                parameters {
+                    choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
+                }
+                }
                 sh 'mvn install'
                 }
                     }
