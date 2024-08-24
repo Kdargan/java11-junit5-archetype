@@ -5,6 +5,11 @@ sudo yum install git -y
 sudo yum install maven -y
 sudo yum install java-11-openjdk.x86_64 -y
 
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.23.0.9-2.amzn2.0.1.x86_64
+export PATH=$JAVA_HOME/bin:$PATH
+source /etc/profile
+echo ${JAVA_HOME}
+
 if { -d java11-junit5-archetype}
 then
 echo "Git repo already clones. Already existed!!!"
