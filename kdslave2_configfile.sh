@@ -16,6 +16,7 @@ echo "Git repo already clones. Already existed!!!"
 cd /home/ec2-user/java11-junit5-archetype
 git pull origin master
 else
+echo "cloning git repo:kd"
 git clone https://github.com/Kdargan/java11-junit5-archetype.git
 cd java11-junit5-archetype
 git checkout master
