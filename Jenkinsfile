@@ -37,7 +37,7 @@ pipeline {
             
             steps {
                echo "In-progress Checkout"
-                git branch: 'feature1', url: ${git_repo}
+                git branch: 'feature1', url: "${git_repo}"
                 
                 }
                         }        
