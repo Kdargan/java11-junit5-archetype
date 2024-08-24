@@ -14,7 +14,7 @@ if [ -d "java11-junit5-archetype"]
 then
 echo "Git repo already clones. Already existed!!!"
 cd /home/ec2-user/java11-junit5-archetype
-git pull origin java11-junit5-archetype
+git pull origin master
 else
 git clone https://github.com/Kdargan/java11-junit5-archetype.git
 cd java11-junit5-archetype
