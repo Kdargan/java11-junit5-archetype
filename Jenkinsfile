@@ -65,7 +65,7 @@ stage('Test') {
                 script{
                     sshagent(['Kdslave2']) {
             echo "In-progress Test"
-            sh "scp -o StrictHostKeyChecking=no kdslave2_configfile.sh ec2-user@107.23.92.19:/root"
+            sh "scp -o StrictHostKeyChecking=no kdslave2_configfile.sh ec2-user@107.23.92.19:/~"
             sh "ssh -o StrictHostKeyChecking=no  ec2-user@107.23.92.19 'bash ~/kdslave2_configfile.sh'"
                         input {
                 message "Select Branch"
