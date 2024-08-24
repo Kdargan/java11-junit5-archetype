@@ -12,7 +12,7 @@ echo ${JAVA_HOME}
 
 if [ -d 'java11-junit5-archetype'] 
 then
-echo "Git repo already clones. Already existed!!!"
+echo "Git repo already cloned. Already existed!!!"
 cd /home/ec2-user/java11-junit5-archetype
 git pull origin master
 else
