@@ -11,7 +11,7 @@ pipeline {
     }
     //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
     options {
-        timeout(time: 60, unit: 'SECONDS')
+        timeout(time: 180, unit: 'SECONDS')
     }
 
     stages {
