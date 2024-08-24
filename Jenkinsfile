@@ -14,9 +14,10 @@ pipeline {
         kdslave2='ec2-user@35.175.126.109'
         DEST_PATH='/home/ec2-user'
             }
-    //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
+    
     options {
         timeout(time: 180, unit: 'SECONDS')
+        buildDiscarder(logRotator(numToKeepStr: '3'))
     }
 
     stages {
