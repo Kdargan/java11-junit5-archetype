@@ -84,17 +84,17 @@ stage('Install') {
                     params.RUN_STAGE_Install == true
                 }
             }
-            steps {
-                script{
-                    sshagent(['Kdslave2']) {
-               echo "In-progress install"
-                        input {
+    input {
                 message "Select Branch"
                 ok "Selected"
                 parameters {
                     choice(name: 'Checkout branch', choices: ['feature1', 'feature2', 'feature3'], description: 'Checkout to branch')
                 }
                 }
+            steps {
+                script{
+                    sshagent(['Kdslave2']) {
+               echo "In-progress install"       
                 sh 'mvn install'
                 }
                     }
