@@ -12,6 +12,7 @@ pipeline {
     environment{
         git_repo='https://github.com/Kdargan/java11-junit5-archetype.git'
         kdslave2='ec2-user@107.23.92.19'
+        DEST_PATH='/home/ec2-user'
             }
     //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
     options {
@@ -69,7 +70,7 @@ stage('Test') {
                 script{
                     sshagent(['Kdslave2']) {
             echo "In-progress Test"
-            sh "scp -o StrictHostKeyChecking=no kdslave2_configfile.sh ${kdslave2}:/~"
+            sh "scp -o StrictHostKeyChecking=no kdslave2_configfile.sh ${kdslave2}:${DEST_PATH}"
             sh "ssh -o StrictHostKeyChecking=no  ec2-user@107.23.92.19 'bash ~/kdslave2_configfile.sh'"
                         input {
                 message "Select Branch"
