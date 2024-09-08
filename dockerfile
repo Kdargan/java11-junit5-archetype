@@ -5,13 +5,13 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_VERSION 3.0.5
 #Since we are using Ubuntu container for Centos Host OS.
 #Hence update apt-get package installer for Ubuntu & install Curl.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update && \
-apt-get install -y curl && \
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update 
+RUN apt-get install -y curl
 #Using curl donload maven setup.Setup file is zip file hence using tar xzf command to unzip setup.
 #AND copy setup to /usr/share path.
-RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share && \
+RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share
 #move the setup to maven dir.
-RUN mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven && \
+RUN mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven
 #clean the resources and clear lists.
 RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/*
