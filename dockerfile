@@ -7,7 +7,7 @@ ENV MAVEN_VERSION 3.8.8
 #Hence update apt-get package installer for Ubuntu & install Curl.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update 
 RUN apt-get install -y curl
-RUN apt install maven
+RUN apt install maven -y
 #Using curl donload maven setup.Setup file is zip file hence using tar xzf command to unzip setup.
 #AND copy setup to /usr/share path.
 RUN curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz | tar xzf - -C /usr/share
