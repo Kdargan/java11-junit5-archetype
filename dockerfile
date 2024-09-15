@@ -15,7 +15,7 @@ RUN mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven
 #clean the resources and clear listsMAVEN_VERSION.
 RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/*
-RUN apt install maven -y
+RUN yum install maven -y
 
 WORKDIR /app
 #copy ./src folder from the host to the ./src in the container.
