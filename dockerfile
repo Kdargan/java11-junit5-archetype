@@ -31,7 +31,7 @@ RUN cp /app/target/java11-junit5-archetype-1.1.0-SNAPSHOT.jar /usr/local/tomcat/
 #assign port to run your application the container.
 EXPOSE 8080
 #run tomcat binary file to run application on web-server
-CMD ["cataline.sh", "run"]
+CMD ["catalina.sh", "run"]
 
 
 
