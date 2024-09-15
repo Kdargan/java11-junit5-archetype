@@ -59,6 +59,17 @@ stage('Compile') {
             }
 
             }
+stage('Package') {
+    agent {label 'kdslave1'}
+            steps {
+                script{
+               echo "In-progress Pakage"
+                sh 'mvn clean'    
+                sh 'mvn package'
+                }
+            }
+
+            }
 stage('Test') {
     agent any
     when{
