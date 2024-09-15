@@ -1,11 +1,12 @@
 #base image
 FROM tomcat:10.0.0-jdk11-openjdk-buster
 #set environment variables
-ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_VERSION 3.8.8
+ENV MAVEN_HOME=/usr/share/maven
+ENV MAVEN_VERSION=3.8.8
+ENV PATH=$MAVEN_HOME/bin:$PATH
 #Since we are using Ubuntu container for Centos Host OS.
 #Hence update apt-get package installer for Ubuntu & install Curl.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update 
+RUN apt-get update 
 RUN apt-get install -y curl
 #Using curl donload maven setup.Setup file is zip file hence using tar xzf command to unzip setup.
 #AND copy setup to /usr/share path.
