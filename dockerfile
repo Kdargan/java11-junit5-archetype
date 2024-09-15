@@ -9,7 +9,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update
 RUN apt-get install -y curl
 #Using curl donload maven setup.Setup file is zip file hence using tar xzf command to unzip setup.
 #AND copy setup to /usr/share path.
-RUN curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share
+RUN curl -fsSL https://dlcdn.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share
 #move the setup to maven dir.
 RUN mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven
 #clean the resources and clear listsMAVEN_VERSION.
