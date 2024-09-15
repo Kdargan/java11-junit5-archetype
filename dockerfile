@@ -2,7 +2,7 @@
 FROM tomcat:10.0.0-jdk11-openjdk-buster
 #set environment variables
 ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_VERSION 3.0.5
+ENV MAVEN_VERSION 3.8.8
 #Since we are using Ubuntu container for Centos Host OS.
 #Hence update apt-get package installer for Ubuntu & install Curl.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update 
