@@ -27,7 +27,7 @@ RUN mvn package
 #delete all the files in the webapps folder.
 RUN rm -rf /usr/local/tomcat/webapps/*
 #copy .war file from target folder to webapps folder
-RUN cp /app/target/java11-junit5-archetype.war /usr/local/tomcat/webapps/
+RUN cp /app/target/java11-junit5-archetype-1.1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
 #assign port to run your application the container.
 EXPOSE 8080
 #run tomcat binary file to run application on web-server
